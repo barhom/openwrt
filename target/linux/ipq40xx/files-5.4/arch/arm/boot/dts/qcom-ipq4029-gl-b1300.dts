@@ -278,3 +278,21 @@
 	status = "okay";
 	qcom,ath10k-calibration-variant = "GL-B1300";
 };
+
+&gmac0 {
+	local-mac-address = [00 00 00 00 00 00];
+	qcom,phy_mdio_addr = <4>;
+	qcom,poll_required = <1>;
+	qcom,forced_speed = <1000>;
+	qcom,forced_duplex = <1>;
+	vlan_tag = <2 0x20>;
+};
+
+&gmac1 {
+	local-mac-address = [00 00 00 00 00 00];
+	vlan_tag = <1 0x1f>;
+	/delete-property/ qcom,phy_mdio_addr;
+	/delete-property/ qcom,poll_required;
+	/delete-property/ qcom,forced_speed;
+	/delete-property/ qcom,forced_duplex;
+};
